@@ -27,8 +27,8 @@ int main(int argc, char* argv[]) {
 
 	FILE * fstream = stdin;
 
-	buildTree(fstream);
-//	printPreorder();
+	Node * tree = buildTree(fstream);
+	printPreorder(tree, 0);
 //	printInorder();
 //	printPostorder();
 

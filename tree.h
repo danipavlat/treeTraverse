@@ -11,9 +11,9 @@
 #ifndef TREE_H
 	#define TREE_H
 
-	void buildTree( FILE * fstream );
+	Node * buildTree( FILE * fstream );
 	void printInorder();
-	void printPreorder();
+	void printPreorder(Node * node, int level);
 	void printPostorder();
 
 #endif

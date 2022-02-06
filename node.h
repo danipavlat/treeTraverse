@@ -15,6 +15,7 @@
 			struct Node * left;
 			struct Node * middle;
 			struct Node * right;
+			char lastChar;
 			char * data;
 		} Node;
 
