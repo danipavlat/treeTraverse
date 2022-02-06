@@ -1,6 +1,6 @@
 /*
  *		Dani Pavlat
- *	 	01/25/2021
+ *	 	02/05/2022
  *	 	CMP SCI 4280
  *
  *	 	tree.c:
@@ -10,22 +10,52 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "node.h"
 
-	void buildTree() {
+	struct Node  * newNode(char * string) {
+		// creates a new node with null pointers for child nodes
+		Node * temp = (struct Node *)malloc(sizeof(struct Node));
+
+		temp -> data = string;
+		temp -> left
+			= temp -> middle
+			= temp -> right
+			= NULL;
+
+		return temp;
+	}
+
+	void buildTree( FILE * fstream ) {
 		/*		constructs the modified binary tree based on the
 		 * 		value of the last character of the data string				*/
-		printf("in buildTree\n");
 
-		/*
-		 * 		to build tree:
-		 *
-		 * 		lastChar < prevLast ?
-		 * 			leftNode = lastChar
-		 * 			: lastChar > prevLast ?
-		 * 				rightNode = lastChar
-		 * 				: middleNode = lastChar
-		 */
+		Node * node = NULL;	// root node
+		char string[50];
+		char newChar;
+		char lastChar;
+
+		// loop through strings in fstream
+		while (scanf("%s", string) != EOF) {
+			if ( node == NULL) {	// if root node
+				node = newNode(string);
+			} else {
+				// get the last characters for comparison
+				newChar = string[ strlen(string - 1) ];
+
+				// create child nodes based value of last character
+				if ( newChar < lastChar ) {
+					node -> left = newNode(string);
+				} else if ( newChar > lastChar ) {
+					node -> right = newNode(string);
+				} else {
+					node -> middle = newNode(string);
+				}
+			}
+			// set lastChar for next loop iteration
+			lastChar = node -> data[ strlen(node -> data) -1 ];
+		}
 	}
 
 	void printInorder() {

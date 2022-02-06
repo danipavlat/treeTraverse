@@ -1,6 +1,6 @@
 	/*
 	 *		Dani Pavlat
-	 *		01/25/2021
+	 *		02/05/2022
 	 *		CMP SCI 4280
 	 *
 	 *		tree.h: contains common function definitions
@@ -11,7 +11,7 @@
 #ifndef TREE_H
 	#define TREE_H
 
-	void buildTree();
+	void buildTree( FILE * fstream );
 	void printInorder();
 	void printPreorder();
 	void printPostorder();

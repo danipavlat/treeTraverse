@@ -1,6 +1,6 @@
 /*
  *	 	Dani Pavlat
- * 		01/25/2021
+ * 		02/05/2022
  * 		CMP SCI 4280
  *
  * 		customTree.c:
@@ -18,17 +18,19 @@ int main(int argc, char* argv[]) {
 	// if filename given, make sure file is readable, error otherwise
 	// set up keyboard processing so that below this point there is only one version of the code
 
-	/*Node *root = buildTree(file);
+	/*Node * root = buildTree(file);
 
 	printPreorder(root);
 	printInorder(root);
 	printPostorder(root);
 	*/
 
-	buildTree();
-	printPreorder();
-	printInorder();
-	printPostorder();
+	FILE * fstream = stdin;
+
+	buildTree(fstream);
+//	printPreorder();
+//	printInorder();
+//	printPostorder();
 
 	return 0;
 }
