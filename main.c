@@ -18,19 +18,15 @@ int main(int argc, char* argv[]) {
 	// if filename given, make sure file is readable, error otherwise
 	// set up keyboard processing so that below this point there is only one version of the code
 
-	/*Node * root = buildTree(file);
-
-	printPreorder(root);
-	printInorder(root);
-	printPostorder(root);
-	*/
-
 	FILE * fstream = stdin;
 
 	Node * tree = buildTree(fstream);
+	printf("Preorder \n");
 	printPreorder(tree, 0);
-//	printInorder();
-//	printPostorder();
+	printf("\nInorder\n");
+	printInorder(tree, 0);
+	printf("\nPostorder\n");
+	printPostorder(tree, 0);
 
 	return 0;
 }

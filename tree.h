@@ -12,8 +12,8 @@
 	#define TREE_H
 
 	Node * buildTree( FILE * fstream );
-	void printInorder();
+	void printInorder(Node * node, int level);
 	void printPreorder(Node * node, int level);
-	void printPostorder();
+	void printPostorder(Node * node, int level);
 
 #endif

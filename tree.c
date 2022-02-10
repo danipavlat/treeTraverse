@@ -15,14 +15,12 @@
 #include "node.h"
 
 	struct Node  * newNode(char * string, char last) {
-		// TODO: THIS SEEMS OK
-
 		// creates a new node with null pointers for child nodes
 		Node * temp = malloc(sizeof(Node));
 		temp -> data = malloc(strlen(string) + 1);
 
 		temp -> lastChar = last;
-		temp -> data = string;
+		strcpy(temp -> data, string);
 		temp -> left
 			= temp -> middle
 			= temp -> right
@@ -32,20 +30,15 @@
 	}
 
 	Node * insertNode(Node * node, char * string, char newChar) {
-		// TODO: THIS ALSO SEEMS OK
 		// inserts a new node based on value of the string's last character
 		if (node == NULL) {
-		        node = newNode(string, newChar);
-//		        printf("%s\n", node -> data);
+		        return newNode(string, newChar);
 		    } else {
 		        if (newChar < node -> lastChar) {
-//		        	printf("left: ");
 		            node -> left = insertNode(node -> left, string, newChar);
 		        } else if (newChar > node -> lastChar) {
-//		        	printf("right: ");
 		            node -> right = insertNode(node -> right, string, newChar);
 		        } else {
-//		        	printf("middle: ");
 		        	node -> middle = insertNode(node -> middle, string, newChar);
 		        }
 		    }
@@ -54,17 +47,16 @@
 	}
 
 	Node buildTree( FILE * fstream ) {
-		// TODO: ALSO OK
 		/*		constructs the modified binary tree based on the
 		 * 		value of the last character of the data string				*/
 
-		Node * node = NULL;	// root node
-		char * string;				// string to be added to tree
-		char newChar;				// last char in string, for comparison
+		Node * node = NULL;		// root node
+		char * string;						// string to be added to tree
+		char newChar;					// last char in string, for comparison
 
 		string = malloc(50 * sizeof(char));
 		// loop through strings in fstream
-		while (scanf("%s", string) != EOF) {
+		while ( scanf("%s", string) != EOF) {
 			newChar = string[strlen(string) - 1];
 			// insert a new node for each string, based on string's last char
 			node = insertNode(node, string, newChar);
@@ -73,36 +65,46 @@
 		return * node;	// returns completed tree
 	}
 
-	void printInorder() {
+	void printInorder(Node * node, int level) {
 		/*		prints the binary tree using inorder traversal
 		 * 		(left child, root/down middle pointer, right child)		*/
-		printf("in printInorder\n");
+		if(node == NULL) {
+			return;
+		}
+		// first recur down left
+		printInorder(node -> left, level + 1);
+		// print root
+		printf("%*c%c:%-9s \n", level * 2, ' ', node -> lastChar, node -> data);
+		// then middle, then right child
+		printInorder(node-> middle, level + 1);
+		printInorder(node -> right, level + 1);
 	}
 
 	void printPreorder(Node * node, int level) {
-		// TODO: Why can't I access the data string?????
-
 		/*		prints the binary tree using preorder traversal
 		 * 		(root, left child, middle child, right child)					*/
-		int i;
-
 		if (node == NULL) {
 			return;
 		}
 		// first print the data of the node
-		for (i = 0; i < (level * 2); i++) {
-			printf(" ");
-		}
-		printf("%c: %s\n", node -> lastChar, node -> data);
+		printf("%*c%c:%-9s \n", level * 2, ' ', node -> lastChar, node -> data);
 		// then, recur on left, middle, and right subtrees
 		printPreorder(node -> left, level + 1);
 		printPreorder(node -> middle, level + 1);
 		printPreorder(node -> right, level + 1);
 	}
 
-	void printPostorder() {
+	void printPostorder(Node * node, int level) {
 		/*		prints the binary tree using postorder traversal
 		 * 		(left child, middle child, right child, root)					*/
-		printf("in printPostorder\n");
+		if(node == NULL) {
+			return;
+		}
+		// first recur on left, middle, and right subtrees
+		printPostorder(node -> left, level + 1);
+		printPostorder(node-> middle, level + 1);
+		printPostorder(node -> right, level + 1);
+		// then print the data of the node
+		printf("%*c%c:%-9s \n", level * 2, ' ', node -> lastChar, node -> data);
 	}
 
