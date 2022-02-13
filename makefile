@@ -14,4 +14,4 @@ P0: $(OBJ)
 .PHONY: clean
 
 clean:
-	rm -rf *.o
+	rm -rf *.o *.preorder *.postorder *.inorder
