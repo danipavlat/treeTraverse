@@ -10,6 +10,8 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include <errno.h>
 #include "node.h"
 #include "tree.h"
@@ -61,9 +63,9 @@ int main(int argc, char* argv[]) {
 
 		fInput = stdin;
 		// allocate space for output filenames
-		outPre = malloc(strlen("out.preorder") + 1);
-		outIn = malloc(strlen("out.inorder") + 1);
-		outPost = malloc(strlen("out.postorder") + 1);
+		outPre = malloc(strlen("output.preorder") + 1);
+		outIn = malloc(strlen("output.inorder") + 1);
+		outPost = malloc(strlen("output.postorder") + 1);
 
 		// name output files with corresponding traversal
 		strcpy(outPre, "output.preorder");
