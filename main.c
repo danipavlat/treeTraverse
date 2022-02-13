@@ -21,7 +21,11 @@ int main(int argc, char* argv[]) {
 	char * outPre;	// preorder traversal output filename
 	char * outIn;		// inorder traversal output filename
 	char * outPost;	// postorder traversal output filename
+
 	FILE * fInput;		// input file
+	FILE * fPre;			// preorder output file
+	FILE * fIn;			// inorder output file
+	FILE * fPost;		// postorder output file;
 
 	// check for valid command line arguments
 	if (argc > 2) {
@@ -77,13 +81,20 @@ int main(int argc, char* argv[]) {
 	Node * tree = buildTree(fInput);
 
 	printf("Preorder traversal: \n");
-	printPreorder(tree, 0, outPre);
+	fPre = fopen(outPre, "w");
+	printPreorder(tree, 0, fPre);
 
 	printf("\nInorder traversal: \n");
-	printInorder(tree, 0, outIn);
+	fIn = fopen(outIn, "w");
+	printInorder(tree, 0, fIn);
 
 	printf("\nPostorder traversal: \n");
-	printPostorder(tree, 0, outPost);
+	fPost = fopen(outPost, "w");
+	printPostorder(tree, 0, fPost);
 
+	fclose(fPre);
+	fclose(fIn);
+	fclose(fPost);
+	fclose(fInput);
 	return 0;
 }

@@ -65,21 +65,19 @@
 		return * node;	// returns completed tree
 	}
 
-	void outputTraversal(Node * node, int level, char * out) {
+	void outputTraversal(Node * node, int level, FILE * outFile) {
 		// prints traversal to console
 		printf("%*c%c:%-9s \n", level * 2, ' ', node -> lastChar, node -> data);
 
 		// writes traversal output to file
-		FILE * outFile = fopen(out, "w");
 		fprintf(outFile, "%*c%c:%-9s \n", level * 2, ' ', node -> lastChar, node -> data);
-		fclose(outFile);
 	}
 
-	void printInorder(Node * node, int level, char * out) {
+	void printInorder(Node * node, int level, FILE * out) {
 		/*		prints the binary tree using inorder traversal
 		 * 		(left child, root/down middle pointer, right child)		*/
 
-		if(node == NULL) {
+		if (node == NULL) {
 			return;
 		}
 		// first recur down left
@@ -92,7 +90,7 @@
 		printInorder(node -> right, level + 1, out);
 	}
 
-	void printPreorder(Node * node, int level, char * out) {
+	void printPreorder(Node * node, int level, FILE * out) {
 		/*		prints the binary tree using preorder traversal
 		 * 		(root, left child, middle child, right child)					*/
 
@@ -108,11 +106,11 @@
 		printPreorder(node -> right, level + 1, out);
 	}
 
-	void printPostorder(Node * node, int level, char * out) {
+	void printPostorder(Node * node, int level, FILE * out) {
 		/*		prints the binary tree using postorder traversal
 		 * 		(left child, middle child, right child, root)					*/
 
-		if(node == NULL) {
+		if (node == NULL) {
 			return;
 		}
 		// first recur on left, middle, and right subtrees
