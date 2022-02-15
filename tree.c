@@ -1,6 +1,6 @@
 /*
  *		Dani Pavlat
- *	 	02/05/2022
+ *	 	02/14/2022
  *	 	CMP SCI 4280
  *
  *	 	tree.c:
@@ -46,16 +46,16 @@
 		    return (node); // return the new pointer to the caller
 	}
 
-	Node buildTree( FILE * inFile ) {
+	Node buildTree( FILE * fInput ) {
 		/*		constructs the modified binary tree based on the
 		 * 		value of the last character of the data string				*/
 
 		Node * node = NULL;		// root node
-		char * string;						// string to be added to tree
-		char newChar;					// last char in string, for comparison
+		char * string = NULL;		// string to be added to tree
+		char newChar = NULL;		// last char in string, for comparison
 
 		string = malloc(50 * sizeof(char));
-		// loop through strings in inFile
+		// loop through strings in fInput
 		while ( scanf("%s", string) != EOF) {
 			newChar = string[strlen(string) - 1];
 			// insert a new node for each string, based on string's last char

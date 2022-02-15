@@ -1,6 +1,6 @@
 /*
  *	 	Dani Pavlat
- * 		02/05/2022
+ * 		02/14/2022
  * 		CMP SCI 4280
  *
  * 		customTree.c:
@@ -32,7 +32,7 @@ int main(int argc, char* argv[]) {
 		errno = 7;
 		perror("ERROR");
 		printf("\nUSAGE: \n"
-				"P0 \t\t reads from the keyboard until simulated EOF (CTRL + D for unix-style systems or CTRL + Z for Windows)\n"
+				"P0 \t\t reads from the keyboard until simulated EOF (CTRL + D)\n"
 				"P0 < somefile \t same as above but redirecting from somefile instead of keyboard\n"
 				"P0 somefile \t reads from somefile.sp2020\n");
 		return 1;
