@@ -18,9 +18,9 @@
 
 int main(int argc, char* argv[]) {
 	char * inFile;		// input filename
-	char * outPre;	// preorder traversal output filename
+	char * outPre;		// preorder traversal output filename
 	char * outIn;		// inorder traversal output filename
-	char * outPost;	// postorder traversal output filename
+	char * outPost;		// postorder traversal output filename
 
 	FILE * fInput;		// input file
 	FILE * fPre;			// preorder output file

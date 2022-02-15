@@ -50,7 +50,7 @@
 		/*		constructs the modified binary tree based on the
 		 * 		value of the last character of the data string				*/
 
-		Node * node = NULL;		// root node
+		Node * node = NULL;			// root node
 		char * string = NULL;		// string to be added to tree
 		char newChar = NULL;		// last char in string, for comparison
 
