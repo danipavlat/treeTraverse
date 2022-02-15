@@ -2,7 +2,7 @@ Dani Pavlat     CMP SCI 4280
 P0: Modified Binary Tree + Traversals
 
 This program creates creates and traverses a modified binary tree,
-using the value of the last letter of each data string.
+using the ASCII value of the last char of each data string.
 
 ## Build
 	make
@@ -13,13 +13,26 @@ using the value of the last letter of each data string.
 	P0 somefile		reads from somefile.sp2020
 
 ## Issues
-The final usage option (reading directly from file specified as a command line argument)
-does not work as intended, however the first two (stdin) options work as they should.
-
-I am not sure what is going wrong here, but I imagine it will be a small logical error 
-that I've yet to spot. I will resubmit when/if corrected.
+None! Previous input file issues have been corrected, thanks to the following
+SO answer speaking of freopen
+https://stackoverflow.com/questions/30365443/how-to-read-and-write-files-using-printf-and-scanf-in-c
 
 ## Changelog
+final commit:
+Fixed input file issues for final submission!
+
+commit 7eb2cd8eacf9659a354dbee6f3da77e410b9a983
+Author: dpnqv <dpnqv@delmar.umsl.edu>
+Date:   Mon Feb 14 21:32:06 2022 -0600
+
+    corrected weird comment indentations
+
+commit 3cc710a373567486020e83472eb6fc75466113d1
+Author: dpnqv <dpnqv@delmar.umsl.edu>
+Date:   Mon Feb 14 20:08:51 2022 -0600
+
+    added README.txt
+
 commit ff524fb7ffe902db3d2b4a9f87730371603a8b53
 Author: dpnqv <dpnqv@delmar.umsl.edu>
 Date:   Mon Feb 14 20:07:06 2022 -0600

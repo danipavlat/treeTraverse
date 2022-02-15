@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
 		// adds file extension ".sp2022" to input filename, then opens
 		strcpy(inFile, argv[1]);
 		strcat(inFile, ".sp2022");
-		fInput = fopen(inFile, "r");
+		fInput = freopen(inFile, "r", stdin);
 
 		// verify input file exists
 		if (fInput == NULL) {
