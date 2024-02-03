@@ -8,8 +8,8 @@ using the ASCII value of the last char of each data string.
 	make
 
 ## Usage
-	P0				reads from the keyboard until simulated EOF (CTRL + D)
-	P0 < somefile	same as above but redirecting from somefile instead of keyboard
+	P0			reads from the keyboard until simulated EOF (CTRL + D)
+	P0 < somefile		same as above but redirecting from somefile instead of keyboard
 	P0 somefile		reads from somefile.sp2020
 
 ## Issues
